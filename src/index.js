@@ -1,5 +1,5 @@
 import React, { memo } from "react";
-import ReactDOM from "react-dom";
+import ReactDOM from "react-dom/client";
 import "./index.module.css";
 import App from "./app";
 import AuthService from "./service/auth_service";
@@ -15,11 +15,11 @@ const FileInput = memo((props) => (
   <ImageFileInput {...props} imageUploader={imageUploader} />
 ));
 
-ReactDOM.render(
+const root = ReactDOM.createRoot(document.getElementById("root"));
+root.render(
   <App
     authService={authService}
     FileInput={FileInput}
     cardRepository={cardRepository}
-  />,
-  document.getElementById("root")
+  />
 );
